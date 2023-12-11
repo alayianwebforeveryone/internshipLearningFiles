@@ -395,3 +395,271 @@
 
 // let anyobj= {a:1, gamil: "skdjfs@gamil.com"};
 // let newarr = console.log(Object.keys(anyobj))
+// const target = { a: 1, f: 2 };
+// const source = { b: 4, c: 5 };
+
+// const returnedTarget = Object.assign(target, source);
+// console.log(target);
+
+// Expected output: Object { a: 1, b: 4, c: 5 } becasue after using assign method it doesnot exist alone.
+
+// console.log(returnedTarget === target);
+// Expected output: true
+// ==============hasOwnProperty-============
+// const target = { a: 1, f: 2 };
+
+// console.log(target.hasOwnProperty("a"))
+//  let newvar = Object.entries(target);
+//  console.log(newvar);
+// ========================de-structuring of object ==========?
+// const anyObj = {a: "alayian", b: "somename"}
+
+// const {b} = anyObj;
+// console.log(anyObj);
+// console.log(b);
+
+// ====================function=============
+
+// function addTwoNumber(num1, num2){
+//     let result = num1+num2;
+//     return result;
+
+//     // console.log("something here") // this will not run because return is call
+    
+// }
+
+//     const addition = addTwoNumber(34, 22);
+//     console.log(addition);
+
+// ================function with condition==========
+// function userMessage(username) {
+//     // console.log(`Hello ${username} welcome to our site`);
+//     if (!username) {
+//         console.log(`please enter username `);
+//         }
+//         else
+//         {
+//             return `Hello ${username} welcome to our site`;
+
+//         }
+    
+    
+// }
+
+// console.log(userMessage("someuser"));
+
+// function with rest operater ===================
+
+// function numbers(val2, val3, ...num){
+//     return num;
+
+// }
+
+// console.log(numbers(200, 300, 400, 300));
+// ==================function with Object=================
+
+// const someObj = {
+//     username:   "alayiansaeed",
+//     id:   "23"
+// }
+
+// function myFunction(someobject){  
+//     console.log(`My user name is ${someobject.username} and my id is ${someobject.id}`)
+// }
+
+// let result = myFunction(someObj);
+// console.log(result);
+// ==================function with aray=================
+
+// const anyArray = [300, 300, 400, 40];
+
+// function getarrayVal(somearray) {
+
+//     console.log(`Price of items are ${somearray[2]}`)
+    
+// }
+
+// console.log(getarrayVal(anyArray));
+// ==================Scope in js ===================
+
+
+
+//   if (true) {
+//     let var1 = 30;// it can only use in the condition
+//     const var2 = 30;   // it can only use in the condition
+//     var var3 = 30;//  It has globla scope can be use anywhere in document
+    // scope inside the if is called block scope and outside if is called global scope
+  
+//   }
+
+//   console.log(var1)
+//   console.log(var2)
+//   console.log(var3)
+
+// =====================scope level================
+// child can access parent variable.
+  // parent cannot access childrean variable.
+
+
+// function parent(){
+//     let somevar = 34;
+
+// function child(){
+//     let somechildvar = 35;
+//     console.log(somevar)
+// }
+// // console.log(somechildvar) // this is child varable parent cannot use it 
+// console.log(child());
+// }
+
+// parent()
+//   =====================this and arrow function=================
+
+// This is use for current context in js like below code
+
+// const myobj = {
+//     a:  "2",
+//     b:"33",
+
+//     c: function anyfun(){
+//         let sum = 23;
+//         console.log(this.sum) // undefined
+//     //    console.log(this.b)
+//        return this.b
+//     }
+// }
+  
+
+// console.log(myobj.c());
+
+
+// ================arrow function==========
+
+// let anyfun = ()=>{
+//     let username = "somename";
+
+//     console.log(this.username)// undefined
+// }
+// ================arrow function with curly braces (explicitly return)=========
+// ()=>{}
+
+
+// let addtwo = (n1,n2)=>{
+//     // let username = "somename";
+//     return n1 +n2;
+// }
+// console.log(addtwo(3,6));
+
+// ================arrow function with implicit return=========
+// let addtwo = (n1,n2) =>  ( n1 +n2);
+
+// console.log(addtwo(3,6));
+
+// ================arrow function with object return=========
+// let returnobject = () => ( {n1: 34, n2: 33});
+
+// console.log(returnobject());
+// ================IIFE======+++++++++++++==
+// to immedialtly execute the function
+// to avoid the glable scop of function
+
+
+
+    // return `it is simple functio made for understainding`;
+
+// })();
+
+// ( (name) => {
+//     console.log(`hello ${name}`)
+// })("alayian");
+
+
+// =====================execution context===============
+
+// three phases 
+//  1) global excuation AudioContext {this}
+//  2) memory creation phases {defining functiona and allocating memory to the variables}
+
+//  3) excuation phase  {assingin values to the varable and excute function}
+
+
+// ==================control flow================
+
+// let score = 200;
+// if (score > 100) {
+//     let anyvar = 'something here'
+//     console.log("you can fly");
+    
+// }
+
+// console.log(`As condition is true so ${anyvar} `)  // here we cannot use this variable as its scope is in the document 
+
+// shorthand =======================or implict scope======
+
+
+// let age = 34;
+
+// if (age>25) console.log("this is a test");
+
+// ==========================switch statement++++++++++
+
+
+// let day = 4; 
+
+// switch(day){
+//     case 1:
+//         console.log("today is saturday");
+//         break;
+//     case 2:
+//         console.log("today is sunday");
+//         break;
+//     case 3:
+//         console.log("today is monday");
+//         break;
+//     case 4:
+//         console.log("today is tuesday");
+//         break;
+
+//         default:
+//             console.log("enter correct number")
+// }
+// ====================truthy and falsy value----------
+
+// falsy values
+
+// false, 0, -0, null, undefined, BigInt, NaN, ""
+
+// truthy values
+
+// false == 0 / true; false ==""/ true; 0 == ""/true
+
+// "0", [], {}, "false", " ", function(){}
+
+// ======how to check empty array and object===
+// let arr = []
+// if(arr.length === 0){
+//     console.log("array is empty");
+// };
+
+// let arr1 = {}
+// if(Object.keys(arr1).length === 0){
+//     console.log("object is empty");
+// }
+
+// ===============Nulish coalscign ongotpointercapture(??)======
+
+// let val1 = 1 ?? 10;
+// let val3 = undefined ?? 10;
+// let val2 = null ?? 10;
+// let val4 = null ?? 12 ?? 13;
+
+// console.log(val1)
+// console.log(val2)
+// console.log(val3)
+// console.log(val4)
+
+// ===============ternery operater======++++++
+
+// let val2 = 3;
+
+// val2 >= 2 ? console.log("test true case"): console.log("false test")
