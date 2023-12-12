@@ -663,3 +663,216 @@
 // let val2 = 3;
 
 // val2 >= 2 ? console.log("test true case"): console.log("false test")
+// =========================Iteration (for)===============
+
+// cl
+
+// keywords++++++++++++++++++
+// brak and continue
+
+// break  {terminate the loop any where we want }
+// for (let i = 0; i < 10; i++) {
+//   let  element = i;
+//   if (element == 5) {
+//     console.log(`this is my favourute number`) 
+//     continue   // pritn all values except 5 
+//   }  
+//   console.log(element);
+// }
+
+
+// ++++++++++++++++++++++++++while+++++++++++++++++++++++++
+
+// let number = 1;
+// while (number <= 20) {
+//   console.log(number)
+//   number = number + 2;
+  
+// }
+
+// +++++++++++++++++++++++do while+++++++++++++++++++++++++++++
+
+// let score = 20;
+
+// do {
+//   console.log(score);
+// score ++;
+
+// } while (score<40);
+// // +++++++++++++++++++++high orders array loops++++++++++++/  forof loop
+// let num = "this is a simple string"
+// for (const value  of num) {   // printing string
+//   console.log(value)
+
+// }
+
+// // +++++++++++++++++++++printing array using for of  loop ++++++++++++/
+// let num = [1, 3, 3, 5, 6]   // 
+// for (const value  of num) {
+  //   console.log(value)
+  
+  // }
+  // // ++++++++++++++++++++printing object usign forin loop++++++++++++/
+// for object specfically we use forin loop
+// let num = {a:2, b:4}
+// for (const value  in num) {  
+//   console.log(`${value} = ${num[value]}`);
+  
+// }
+
+
+// =======================map ==============================?
+
+
+// let newmap  = new Map();
+
+// newmap.set("pak", "pakistan");
+// newmap.set("IN", "India");
+// newmap.set("US", "United state");
+// newmap.set("uk", "united kingdosm");
+
+
+// for (const [iterator, val] of newmap) {
+//   console.log(iterator, val)
+  
+// }
+
+
+// ===========================froeeach()+++++++++++++++?
+
+
+// let anyarray = ["alayian", "umer", "ali"];
+
+// anyarray.forEach(function (val){
+//   console.log(val);
+// })
+
+
+
+// function printme(somethign) {
+//   console.log(somethign)
+  
+// }
+
+// anyarray.forEach(printme);
+
+
+// let anyarary = [
+//        {
+//         val1:23,
+//       val2: 3
+//     },
+//        {val1:2,
+//       val4: 34},
+//        {val1:2,
+//       val6: 4}
+// ]
+
+// anyarary.forEach((obj) => {
+//     console.log(obj.val1);
+// })
+
+// foreach loop doesn't return any value we cannot store it 
+// any variable to return any value we use filter method work similarly but 
+// give also some valur that satisfy any given condition
+
+
+// let num = [3,4,5,6,7,8,8]
+
+// let filterValue = num.filter( (item)=> item > 4 )
+
+// console.log(filterValue);
+
+
+// let booksData = [
+//   {
+//     booksname:  "somename", publishingDate: 2011,  genra: "drama"
+//   },
+//   {
+//     booksname:  "Khutbaat", publishingDate: 2010,  genra: "Islamic"
+//   },
+//   {
+//     booksname:  "Peer e kamil", publishingDate: 2011,  genra: "drama"
+//   },
+//   {
+//     booksname:  "Deenyat", publishingDate: 2010,  genra: "islamic"
+//   }
+// ]
+
+// let filtervalue = booksData.filter((bk) => bk.publishingDate > 2009);
+// console.log(filtervalue);
+
+// ===========similarly we can do same thing by
+
+// let booksData = [
+//     {
+//       booksname:  "somename", publishingDate: 2011,  genra: "drama"
+//     },
+//     {
+//       booksname:  "Khutbaat", publishingDate: 2010,  genra: "Islamic"
+//     },
+//     {
+//       booksname:  "Peer e kamil", publishingDate: 2011,  genra: "drama"
+//     },
+//     {
+//       booksname:  "Deenyat", publishingDate: 2010,  genra: "islamic"
+//     }
+//   ]
+
+//   let anyarary = [];
+// booksData.forEach( (item) => {
+//   if (item.genra === "drama") {
+//   (anyarary.push(item)) 
+    
+    
+//   }
+// })
+
+// console.log(anyarary);
+
+// =================================chaining ====================\\
+
+// let numbers = [10,20,30]
+
+//   let aftrchaining = numbers.map((item) => item+ 5)
+//   .map((item) => item -3 )
+//   .filter((item) => item %3 == 0 );
+
+//   console.log(aftrchaining);
+// =================================reduce ====================\\
+// let myNum = [1,2,3]
+
+
+// let firstValue = 5;
+
+// let reducemethod = myNum.reduce((accum, c_value) =>  {
+//   console.log(`Accumalater value = ${accum} and curret value = ${c_value}`)
+//   return accum + c_value, firstValue
+// } 
+// );
+
+// console.log(reducemethod);
+
+// let shoping_item = [
+//   {
+//     mobile: 34, price: 34000
+//   },
+//   {
+//     laptop: 34, price: 340000
+//   },
+//   {
+//     headphone: 33, price: 30000
+//   }
+// ]
+
+
+// let initialValue = 0;
+
+// let total_p  rice = shoping_item.reduce( (accum, current) => {
+  // console.log(`${accum}`)
+  // return accum + current.price
+// },0);
+
+// console.log(total_price);
+
+
