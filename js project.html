@@ -1,0 +1,156 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js project</title>
+
+    <style>
+        #abovediv{
+               width: 400px;
+               height: 300px;
+               background-color: black;
+               border: 2px solid green;
+               margin: 0 auto;
+        }
+
+       #white{
+        background-color: white;
+       }
+       #green{
+        background-color: green;
+       }
+       #blue{
+        background-color: blue;
+       }
+
+       #userNum, #game-inst , #game-heading, #pre-guess, #Rem-guess{
+        text-align: center;
+       }
+
+       #userNUM{
+        margin-left: 525px;
+       }
+
+      
+
+
+
+    </style>
+    
+</head>
+<body>
+    <!-- =============================================Background Switcher============? -->
+    <div id = "abovediv"></div>
+    <h3>Click the below button to change the background color of above Box</h1>
+        <button class="button" id="white">White</button>
+        <button class="button" id="green">Green</button>
+        <button class="button" id="blue">Blue </button>
+<!-- // =============================================Background Switcher============? -->
+   <h1>BMI Calculator</h1>
+   <form action="" id="form">
+    <label for="weight in cm">Weight in km</label>
+        <input type="text" name="weight in kg" id="weight">
+        <br> <br>
+    <label for="height in km"> height in meter </label>
+        <input type="text" name="height in km" id="height">
+        <br><br>
+   <input type="submit" name="Calculate" id="cal" >
+
+     
+   </form>
+
+   <h6 id="result"></h6>
+   <h6 id="range"></h6>
+<!-- =======================================Simple Guess game================== -->
+ <P id="game-inst">Try a game to enter random number between 10 to hundred <br> you have 10 
+attempt to guess the right number</P>
+ <h2 id="game-heading">Guess the Number</h2>
+
+   <input type="text" name="numberField" id="userNum">
+
+   <button>Submit Game</button>
+
+   <p id="pre-guess">Previous guesses</p>
+   <p id="Rem-guess"> Remaining Gueses</p>
+    </body>
+
+<script>
+
+// =============================================Background Switcher============?
+let button = document.querySelectorAll(".button");
+// console.log(button)
+
+button.forEach((aButton)=> {
+        // console.log(aButton.id);
+
+        aButton.addEventListener('click', (e)=> {
+            // console.log(e);
+            // console.log(e.target);
+            // console.log(e.target.id);
+
+            if (e.target.id === "white") {
+               let abovediv = document.querySelector("#abovediv");
+              abovediv.style.backgroundColor= e.target.id;
+            }
+            if (e.target.id === "green") {
+               let abovediv = document.querySelector("#abovediv");
+              abovediv.style.backgroundColor= e.target.id;
+              abovediv.style.border="2px solid blue";
+            }
+            if (e.target.id === "blue") {
+               let abovediv = document.querySelector("#abovediv");
+              abovediv.style.backgroundColor= e.target.id;
+            }
+        })
+    })
+// ====== =======================================Background Switcher============?
+
+let form = document.querySelector("#form");
+let  actualSubmit= document.querySelector("#cal");
+
+form.addEventListener('submit', function(e){
+    // alert("hello")
+    e.preventDefault();
+    let height = parseInt(document.querySelector("#height").value);
+    let weight = parseInt(document.querySelector("#weight").value);  
+    // console.log(km);
+    // console.log(cm);
+   if ( height==""|| height < 0 || isNaN(height)) {
+
+    let result = document.querySelector("#result");
+    result.innerHTML = "Please enter a valid number";
+   }
+   else if ( weight==""|| weight < 0 || isNaN(weight)) {
+
+    let result = document.querySelector("#result");
+    result.innerHTML = "Please enter a valid number";   
+   }
+   else
+   {
+       let calculat =(weight/((height*height)/10000)).toFixed(2);
+       result.innerHTML = `<span> ${calculat} </span>`
+
+       console.log(result.textContent)
+         if (result.textContent<18) {
+            let range = document.querySelector("#range");
+            range.innerHTML = `You are under weight`;
+         }
+            else if(result.textContent>18 && result < 24) {
+            let range = document.querySelector("#range");
+            range.innerHTML = `Your weight is normal`;
+         }
+         else if(result.textContent> 24) {
+            let range = document.querySelector("#range");
+            range.innerHTML = `You are over weight`;
+         }
+
+            }
+// ================================BMI calculater===================?
+
+
+})
+
+
+
+</script>
+</html>

@@ -1,0 +1,161 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Manuplation</title>
+
+    <style>
+        .imglist img{
+            height: 200px;
+            width: 400px;
+            margin-top: 20px;
+        }
+
+        .imglist{
+            color: white;
+        }
+body{
+    background-color: #212121;
+}
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="day">Saturday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tueasday</div>
+        <div class="day">Wedenesday</div>
+
+    </div>
+
+    <div class="language">
+        <ul>
+            <li class="languageName">Urdu</li>
+            <li class="languageName">Punjabi</li>
+            <li class="languageName">Chinies</li>
+        </ul>
+    </div>
+
+    <div>
+        <ul id="img_ul">
+            <li class="imglist" ><img src="images/slider1.png" alt="" id="img1" class="img"></li>
+            <br><br><br><br>
+            <li class="imglist" ><img src="images/slide2.png" alt="" id="img2" class="img"></li>
+            <br>
+            <li class="imglist" ><img src="images/slide3.png" alt="" id="img3" class="img"></li>
+            <br>
+            <li class="imglist" ><img src="images/slide5.png" alt="" id="img4" class="img"></li>
+        </ul>
+    </div>
+
+    <script>
+
+    // ========================DOM===================================
+        let container = document.querySelector(".parent");
+        // console.log(container);
+      let div_collection =  (container.children);
+
+        let arrayconverted = Array.from(div_collection);
+        // console.log(arrayconverted);
+        // console.log(arrayconverted[2].innerHTML);
+
+    let arrayOp = arrayconverted.forEach((div) =>{
+    //    console.log(div.innerHTML);
+       div.style.color = "red";
+    })
+
+    let child = document.querySelector(".day");
+    // console.log(child)
+    // console.log(child.parentElement.innerHTML);
+    // console.log(child.nextElementSibling.innerHTML);
+
+    // console.log(arrayOp);
+
+    // ====================== ========createnewElement=========
+    let h1  = document.createElement("h1");
+    console.log(h1);
+    h1.id = Math.round(Math.random() *10 +1);
+    // h1.innerHTML = 'This is a simple heading';
+
+    let addText = document.createTextNode("This is a simple heading");
+    h1.appendChild(addText);
+    // document.body.appendChild(h1)
+    // ==========================edit and remove dom==========
+    //  let lang = document.querySelector('.language ul ');
+
+     function addlang(newlang){
+
+         let li = document.createElement('li');
+         li.innerHTML = newlang;
+         lang.appendChild(li)
+
+     }
+
+    //  addlang("Hindi")
+   
+// ============================optimize way=========  
+    function newlg(language){
+        lang = document.querySelector('.language ul ');
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(language));
+        lang.appendChild(li);
+    }
+
+    newlg("Arabic");
+// ===================edit
+let listofLang  =  document.querySelector(".languageName");
+// console.log(listofLang.innerHTML);
+let newli = document.createElement("li");
+console.log(newli);
+newli.innerHTML = "Sindhi";
+listofLang.replaceWith(newli);
+
+
+// =====================another way of edit
+let listLang  =  document.querySelectorAll(".languageName");
+listLang.outerHTML = "<li> new language </li>" ;
+
+console.log(listLang)
+
+
+// =================================Events======================addText
+// There are many ways to use event in js 
+
+
+let img1 = document.querySelector("#img1");
+let img2 = document.querySelector("#img2");
+let img3 =document.querySelector("#img3");
+let img_ul = document.querySelector("#img_ul");
+// let Allimg = document.querySelector('img');;
+// console.log(Allimg);
+// +++++++++++++Not good way
+
+// img1.onclick = function(){     
+    //     alert("first img is clicked")
+    // }
+    
+    // +++++++++++++ good way
+
+    img2.addEventListener('click', ()=> {
+          alert("clicked on individual imges")
+    }, false);
+    img_ul.addEventListener('click', ()=> {
+          alert("clicked inside the ul")
+    }, false)
+
+
+// Id third parameter is true  then capturing pat  ern(outside to inside)
+// Id third parameter is false  then bubble pattern(inside to outside)
+
+
+    // Event types, timestamp, defaultprevented, target, toElement
+    // srcElement, currentrTarget, clienX, clienY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keycode
+
+    // =====================event propogation
+     
+
+
+    </script>
+</body>
+</html>
