@@ -16,10 +16,69 @@
         }
 body{
     background-color: #212121;
+    color: white;
 }
+
+
+#bg_changeHead{
+    text-align: center;
+          
+}
+
+.play-btn{
+    /* display: flex; */
+    width: 70px;
+    background-color: rgb(50, 116, 174);
+    display: block;
+    margin: 0 auto;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.bgchange_container{
+    margin: 0 auto;
+    height: 200px;
+    width: 60%;
+    background-color: #6e5370;
+    border: 3px solid gray;
+}
+/* ============================keydown====== */
+
+#keyDown-container{
+
+    background: #898484;
+    width: 60%;
+    height: 200px;
+    border: 2px solid white;
+    margin: 20 auto;
+}
+
+
     </style>
 </head>
 <body>
+
+ <!-- ====================bg change with btn==========     -->
+    <div class="bgchange_container">
+        <h3 id="bg_changeHead">Ater clicking start
+             button bg change at every secodn and it will stop on stop button</h3>
+             <button class="play-btn" id="btnStart">Start</button>
+             <button class="play-btn" id="btnStop">Stop</button>
+    </div>
+
+     
+
+<!-- =====================================keydown=========== -->
+<div id="keyDown-container">
+   <h3 style="text-align: center;">Enter any key form keyboard</h3>
+   <p id="insert"></p>
+
+</div>
+      <!-- <div>
+        <button id="start"> Start Now</button>
+        <button id="stopNow">Stop Now</button>
+      </div> -->
+
     <div class="parent">
         <div class="day">Saturday</div>
         <div class="day">Monday</div>
@@ -27,6 +86,8 @@ body{
         <div class="day">Wedenesday</div>
 
     </div>
+
+    <button id="stop">Stop</button>
 
     <div class="language">
         <ul>
@@ -152,10 +213,190 @@ let img_ul = document.querySelector("#img_ul");
     // srcElement, currentrTarget, clienX, clienY, screenX, screenY
     // altkey, ctrlkey, shiftkey, keycode
 
-    // =====================event propogation
-     
+    // =====================event propogation=====================================
 
+    // ========================Async code =======================
+    
+    // It is single threaded each operation wait to complete last one
+    // Blockign code=====================
+    
+    // block the flow of program 
+    // Read file synchronous  means that it will wait while   read the file  
+    
+    //Non  Blockign code=====================
+    
+    // Read file Asynchronous  means that it will continue execution  while  read the file  
+     // donot block the flow of program 
+
+// ===================setimeout function-============
+
+//    setTimeout(() => {
+    //      console.log("Hello alayian")
+    
+    //  }, 6000);
+    
+// let day =  document.querySelector(".day");
+
+// function syalayian() {
+//      day.innerHTML = "friday"
+//  };
+ 
+//  const changeMe = setTimeout(syalayian, 4000)
+
+//  document.querySelector("#stop").addEventListener('click', ()=>{
+//      clearTimeout(changeMe);
+//     })
+    
+// ===================setinterval function-========
+//   document.getElementById("start").addEventListener("click", ()=>{
+//        var startTime=  function DemoIntercval(){
+//         console.log(`Today date is something`)
+//        }
+
+//      let intervel =   setInterval(startTime, 1000);
+//        document.getElementById("stopNow").addEventListener("click", ()=>{
+            
+//            clearInterval(intervel);
+//     })
+//     })
+
+    // ================================bg change continously++++++++++++++++++++
+   let startbtn = document.getElementById("btnStart");
+//    console.log(startbtn)
+
+
+ function random_Color(){
+        let red = Math.floor(Math.random()* 256);
+        let blue = Math.floor(Math.random()* 256);
+        let green = Math.floor(Math.random()* 256);
+        
+
+        let generatedColor = `rgb(${red}, ${green}, ${blue} )`
+        return generatedColor;
+        
+ }
+let inter;
+   startbtn.addEventListener("click", ()=>{
+       let changebtn=  ()=>{
+       let container =  document.querySelector(".bgchange_container")
+          container.style.backgroundColor = random_Color();
+           console.log("bg is changing");
+       }
+        inter =   setInterval(changebtn, 1000);
+
+    })
+    let stopbtn  = document.getElementById("btnStop");
+       stopbtn.addEventListener("click", ()=>{
+         clearInterval(inter);
+        //  inter= null;
+
+    })
+
+
+// ======================================keydown event==================
+     let insert = document.getElementById("insert");
+    //  console.log(insert);
+
+     window.addEventListener('keydown', (e)=>{
+        insert.innerHTML = `
+        <table>
+    <thead>
+      <tr> 
+        <th>Key</th>
+        <th>Key Code</th>
+        <th>Code </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>${e.key === " " ? "space" : e.key}</td>
+        <td>${e.keyCode}</td>
+        <td>${e.code}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+        `
+     })
+
+// ==========================================Promise=================   
+function prom(test){
+return  new Promise(function(resolve, reject){
+    console.log("Please wait...")
+    setTimeout(() => {
+        if (test) {
+        resolve("promise is resolved")    
+    }
+    else{ 
+        reject('promise is reject')
+    }
+    },  3000);
+  
+});
+}
+
+let onful = (result)=>{
+    console.log(result);
+}
+let  onrej= (error)=>{
+    console.log(error);
+}
+
+prom(false).then(onful).catch(onrej);
+
+// const newFun = async () => {
+//     try {
+
+//         const res = await prom(false);
+//         console.log(res)
+        
+//     } 
+//     catch (err) {
+//         console.log(err)
+//     }
+// }
+// newFun()
+
+
+
+// let meet = function oncomp(){
+//     console.log("We will meet tomorraw at nafees")
+// }
+// let notmeet = function onrej(){
+//     console.log("We will meet next week  at nafees")
+// }
+
+// prom().then(cncomp);
+// prom().then(onrej);
+
+
+let someprom = new Promise((resolve, reject)=>{
+    setTimeout(() => {
+      resolve({
+        name: "alayian", email: "alayian@gmail.com"
+      })  
+    }, 1000);
+})
+
+async function consumepromise(){
+    try {
+        const responese = await someprom;
+        console.log(responese);
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+}
+
+consumepromise()
+// .then((userdata)=>{
+//    return userdata.name;
+// }).then((name)=>{
+//     console.log(name)
+// }).finally(()=> console.log("Now I can understand promise concept"))
 
     </script>
-</body>
+</body> 
 </html>
