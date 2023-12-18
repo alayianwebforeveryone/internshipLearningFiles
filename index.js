@@ -874,5 +874,175 @@
 // },0);
 
 // console.log(total_price);
+let anyob = {
+  name: "alayian", address: "bagh ",
+  sum: function(){
+      console.log(`${alayian + address} `);
+  }
+}
+// HERE we have created an object at object level in --
+// prototype and try to access it that is working well as it is created at object level that ---
+// more depth level so it can be access by both array and function as well as string
+
+let anyarray = ['ali', 'umer']
+
+let anystr = "This is alayian"
+
+Object.prototype.run = function(){
+//  console.log("it is inserted into object");
+}
+
+// anyarray.run(); // array can access
+//  anyob.run();// obj can access it
+// anyob.sum.run(); // functin can also access
+// anystr.run();//   string can alos access
+// HERE we have created an array at array level in --
+// prototype and try to access it that is working well
+
+Array.prototype.inj = function(){
+  // console.log("it is inserted at array level")
+}
+// anyob.inj();// obj cannot access it 
+//  anyarray.inj(); // array can access it
+//  anyob.sum.inj(); // obj cannot   access
+// anystr.inj();// str cannot access it
+
+let str1 = 'alayian   '
+let str2 = 'umer  '
+
+String.prototype.truelenght = function(){
+  // console.log(`${this}`)
+  // console.log(`tru length is ${this.trim().length}`)
+}
+
+// "ali".truelenght();
+
+
+// function someFun(username, password){
+//          this.password = password;
+//          this.username = username;
+// }
+
+// someFun("ali", 123)
+
+function greet(name) {
+  // console.log('Hello, ' + name + '!');
+  return
+}
+
+greet('Alice');
+
+function greet(name) {
+  // return console.log('Hello, ' + name + '!');
+  
+}
+
+var result = greet('Alice');
+// console.log(result); // 
+
+
+// ---------------------class-------------------
+
+// class Person{
+// constructor(age, name, address){
+//   this.age = age;
+//   this.name = name;
+//   this.address= address;
+// }
+
+// here we will create method for this class
+
+// changeName(){
+//   console.log(`Now user name is ${this.name.toUpperCase()}`)
+// }
+// }
+// here is instance of object
+
+// const person_1 = new Person(12, 'ali', 'xyz');
+// const person_2 = new Person(12, 'umer', 'abc');
+
+// person_1.changeName();
+// ----------------------------inheritence----------------
+
+// class student{
+//   constructor(id){
+//     this.id = id
+//   }
+// }
+  
+
+//      class Teacher extends student{
+//       constructor(age, cnic, pass){
+
+//         this.age= age
+//         this.cnic= cnic
+//         this.pass= pass
+//         super(id);
+//       }
+
+//       enrolled(){
+//         // if (id == "123") {
+//         //   alert("working")
+//           console.log(`this student has id ${id} it can be enrolled`)
+          
+//         }
+//       }
+
+
+class Student {
+  constructor(name, address, id) {
+    this.name = name;
+    this.id = id;
+    this.address = address;
+  }
+   static test1(){
+    console.log('this is simple for test1');
+  }
+}
+
+class Teacher extends Student {
+  constructor(name, address, pass) {
+    super(name, address, pass); // Correct the parameters passed to super
+    this.pass = pass;
+  }
+
+  test(){
+    console.log('this is simple for test');
+  }
+
+  enrolled() {
+    if (this.name == "Sohail") { // Correct the reference to id, and use strict equality (===)
+      // alert("working");
+      console.log(`This student has id ${this.pass} and can be enrolled.`);
+    }
+  }
+}
+
+const teacher_1 = new Teacher("Sohail", "Mirpur", "abc");
+const student_1 = new Student('ali', 'bagh', '123')
+
+
+teacher_1.enrolled();
+teacher_1.test1();// child instance can access parent class method but in case of static it cannot access.
+student_1.test1();  // this is simple
+// student_1.enrolled();// parent class instance can't access child class method
+// This is called inheritence means child calsses can access parents method
+console.log(student_1 instanceof Teacher);// false
+
+
+// static keyword is use make private any method
+
+
+// class Use {
+//   constructor(){
+
+//   }
+// }
+
+
+
+
+     
+
 
 
